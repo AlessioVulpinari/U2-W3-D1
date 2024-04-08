@@ -56,14 +56,19 @@ const handleBtn = function (e) {
   handleReset()
 
   const pet = new Pet(petName, owner, species, breed)
+  handlePets(pet)
   pets.push(pet)
-  console.log(pets)
 }
 
 const handleReset = function () {
   for (let i = 0; i < inputs.length; i++) {
     inputs[i].value = ""
   }
+}
+
+const handlePets = function (pet) {
+  const petList = document.getElementById("petList")
+  petList.value += `${pet.petName} ${pet.ownerName} ${pet.species} ${pet.breed} \n`
 }
 
 form.addEventListener("submit", handleBtn)
